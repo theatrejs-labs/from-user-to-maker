@@ -1,19 +1,42 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
+import socket from '../socket'
 
 import './style.scss'
+import { every } from '../utils/timeout';
 
 interface IProps {}
-interface IState {}
+interface IState {
+    connectedToRemote: boolean
+    currentSlide: number
+}
+
+interface IRemoteSignal {
+    type: 'command',
+    message: string | any
+}
 
 class Presentation extends React.Component<IProps, IState> {
 
     state = {
+        connectedToRemote: false,
         currentSlide: 0
     }
 
-    componentDidMount () {
-        // this.next is where it goes to next slide
-        setInterval(() => { this.next() }, 1000);
+    constructor (props: IProps) {
+        super(props)
+        every(1000, () => {
+            if (socket.connected !== this.state.connectedToRemote) {
+                this.setState({ connectedToRemote: socket.connected })
+            }
+        })
+        socket.on('remote-control', (data: IRemoteSignal) => {
+            if (data.type === 'command') this.onControlCommand(data.message)
+        });
+    }
+
+    onControlCommand (command: string) {
+        if (command === 'next') this.next()
+        if (command === 'prev') this.prev()
     }
 
     private get slides () {
