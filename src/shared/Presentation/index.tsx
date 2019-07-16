@@ -9,7 +9,7 @@ class Presentation extends React.Component<IProps, IState> {
 
     render () {
         return (
-            <div>This is a component</div>
+            <div>{ this.props.children }</div>
         )
     }
 

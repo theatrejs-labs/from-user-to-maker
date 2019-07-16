@@ -9,7 +9,7 @@ class Slide extends React.Component<IProps, IState> {
 
     render () {
         return (
-            <div>This is a component</div>
+            <div></div>
         )
     }
 
