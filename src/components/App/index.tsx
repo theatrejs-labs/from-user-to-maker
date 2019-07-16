@@ -8,9 +8,9 @@ export default class extends React.Component {
     render () {
         return (
             <Presentation>
-                <Slide></Slide>
-                <Slide></Slide>
-                <Slide></Slide>
+                <Slide>1</Slide>
+                <Slide>2</Slide>
+                <Slide>3</Slide>
             </Presentation>
         )
     }
