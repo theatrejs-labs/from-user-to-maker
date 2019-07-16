@@ -11,11 +11,11 @@ interface IState {
 }
 
 interface IRemoteSignal {
-    type: 'command',
+    type: 'command' | 'controller-ready',
     message: string | any
 }
 
-class Presentation extends React.Component<IProps, IState> {
+class Presentation extends React.PureComponent<IProps, IState> {
 
     state = {
         connectedToRemote: false,
@@ -24,13 +24,15 @@ class Presentation extends React.Component<IProps, IState> {
 
     constructor (props: IProps) {
         super(props)
-        every(1000, () => {
-            if (socket.connected !== this.state.connectedToRemote) {
-                this.setState({ connectedToRemote: socket.connected })
-            }
-        })
+        let connectionTimeout: any = null
         socket.on('remote-control', (data: IRemoteSignal) => {
             if (data.type === 'command') this.onControlCommand(data.message)
+            if (data.type === 'controller-ready') {
+                if (connectionTimeout) clearTimeout(connectionTimeout)
+                socket.emit('remote-control', { type: 'presentation-ready' })
+                this.setState({ connectedToRemote: true })
+                connectionTimeout = setTimeout(() => { this.setState({ connectedToRemote: false }) }, 4000)
+            }
         });
     }
 
@@ -62,6 +64,7 @@ class Presentation extends React.Component<IProps, IState> {
     }
 
     render () {
+        console.log(this.state)
         return (
             <div className="presentation">{ this.slides }</div>
         )
