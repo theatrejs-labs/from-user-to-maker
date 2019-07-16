@@ -1,10 +1,12 @@
 const path = require('path')
-const app = require('express')()
+const express = require('express')
+const app = express()
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
-app.set('view engine', 'pug');
-app.set('views', path.resolve(__dirname, './views'));
+app.set('view engine', 'pug')
+app.set('views', path.resolve(__dirname, './views'))
+app.use(express.static(path.resolve(__dirname, './public')))
 
 server.listen(3001)
 
