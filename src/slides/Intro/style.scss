@@ -1,0 +1,51 @@
+.Intro {
+    
+    &__title {
+        opacity: 0;
+        transition-duration: 1s;
+        transition-timing-function: ease-out;
+        transform: translate(-50%, -50%);
+        margin-top: 40px;
+
+        &__part1 {
+            transform: translate(-80%, -100%);
+        }
+        &__part2 {
+            transition-delay: 0.1s;
+            transform: translate(-26.5%, -85%);
+        }
+    }
+
+    & > .line {
+        width: 0px;
+        transform: none;
+        transition-duration: 0.5s;
+
+        &.right {
+            top: -40px;
+            left: 120px;
+        }
+
+        &.left {
+            top: 55px;
+            left: -370px;
+        }
+    }
+
+    &.appear {
+
+        .Intro__title {
+            opacity: 1;
+            margin-top: 0;
+        }
+
+        .line {
+            transition-delay: 0.8s;
+            width: 160px;
+
+            &.left {
+                transition-delay: 0.9s;
+            }
+        }
+    }
+}

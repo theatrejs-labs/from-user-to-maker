@@ -11,7 +11,6 @@ export default class extends React.Component {
         return (
             <Presentation background={background}>
                 <Intro />
-                <Intro />
             </Presentation>
         )
     }

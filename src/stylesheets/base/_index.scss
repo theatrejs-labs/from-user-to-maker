@@ -1,1 +1,9 @@
 @import './base';
+
+.line {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 2px;
+    background: #345B6B;
+    width: 100px;
+}
