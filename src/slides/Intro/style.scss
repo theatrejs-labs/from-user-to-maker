@@ -16,7 +16,7 @@
         }
     }
 
-    & > .line {
+    .line {
         width: 0px;
         transform: none;
         transition-duration: 0.5s;
@@ -47,5 +47,19 @@
                 transition-delay: 0.9s;
             }
         }
+    }
+
+    & > .point {
+        transition-duration: 2s;
+    }
+
+    &.showTable {
+
+        & > .point {
+            transform: translate(0, -300px) scale(0.9);
+            filter: blur(5px);
+            opacity: 0.2;
+        }
+
     }
 }
