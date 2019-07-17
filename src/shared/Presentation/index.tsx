@@ -2,9 +2,10 @@ import React from 'react'
 import socket from '../socket'
 
 import './style.scss'
-import background from './assets/background.svg'
 
-interface IProps {}
+interface IProps {
+    background: string
+}
 interface IState {
     connectedToRemote: boolean
     currentSlide: number
@@ -64,6 +65,7 @@ class Presentation extends React.PureComponent<IProps, IState> {
     }
 
     render () {
+        const { background } = this.props
         return (
             <div className="presentation">
                 {this.slides}
