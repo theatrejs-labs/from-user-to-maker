@@ -1,4 +1,4 @@
-.UsersAndMakers {
+.TheDynamicDesignTool {
     
     &__title {
         position: absolute;
@@ -7,37 +7,23 @@
         left: 0;
         transition-duration: 0.5s;
         transition-delay: 0.3s;
-        transition-timing-function: ease-out;
         transform: translate(-50%, -50%);
+        transition-timing-function: ease-in-out;
         margin-top: 0px;
     }
-
-    .line {
-        left: -174px;
-        width: 0;
-        transition-duration: 0.5s;
-
-        &.right {
-            left: 174px;
-        }
-    }
-
+    
     &.appear {
-
-        .UsersAndMakers__title  {
+        
+        .TheDynamicDesignTool__title  {
+            transition-timing-function: ease-out;
             transition-duration: 1s;
             transition-delay: 0.4s;
             opacity: 1;
             top: 0;
         }
 
-        .line {
-            transition-delay: 0.8s;
-            width: 225px;
-        }
-
         .chapter {
-            transform: translate(-50%, -65%);            
+            transform: translate(-50%, -60%);            
         }
     }
 }

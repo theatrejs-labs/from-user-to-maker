@@ -6,7 +6,7 @@
         top: 50px;
         left: 0;
         transition-duration: 0.5s;
-        transition-timing-function: ease-out;
+        transition-timing-function: ease-in-out;
         transform: translate(-50%, -50%);
         margin-top: 0px;
     }
@@ -21,6 +21,7 @@
     &.appear {
 
         .Inklings__title  {
+            transition-timing-function: ease-out;
             transition-duration: 1s;
             transition-delay: 0.4s;
             opacity: 1;

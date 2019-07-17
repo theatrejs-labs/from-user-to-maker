@@ -14,11 +14,11 @@ export default class extends React.Component {
     render () {
         return (
             <Presentation background={background}>
-                <TheDynamicDesignTool />
                 <Intro />
                 <Inklings />
                 <UsersAndMakers />
                 <HereBeDragons />
+                <TheDynamicDesignTool />
             </Presentation>
         )
     }

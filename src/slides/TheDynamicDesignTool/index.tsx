@@ -4,8 +4,8 @@ import './style.scss'
 
 import Slide from '../../shared/Slide'
 
-import two from './assets/two.svg'
-import title from './assets/UsersandMakers.svg'
+import infinity from './assets/infinity.svg'
+import title from './assets/TheDynamicDesignTool.svg'
 
 export default class extends Slide {
 
@@ -31,12 +31,10 @@ export default class extends Slide {
     get content () {
         const { appear } = this.state
         return (
-            <div className={'UsersAndMakers' + (appear ? ' appear' : '')}>
+            <div className={'TheDynamicDesignTool' + (appear ? ' appear' : '')}>
                 <div className="point">
-                    <div className="line left" />
-                    <div className="line right" />
-                    <img className="chapter" src={two} alt="Chapter Two" />
-                    <img className="UsersAndMakers__title" src={title} alt="Users and Makers" />
+                    <img className="chapter" src={infinity} alt="Final Chapter" />
+                    <img className="TheDynamicDesignTool__title" src={title} alt="The Dynamic Design Tool" />
                 </div>
             </div>
         )

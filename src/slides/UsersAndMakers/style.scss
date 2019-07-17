@@ -7,7 +7,7 @@
         left: 0;
         transition-duration: 0.5s;
         transition-delay: 0.3s;
-        transition-timing-function: ease-out;
+        transition-timing-function: ease-in-out;
         transform: translate(-50%, -50%);
         margin-top: 0px;
     }
@@ -25,6 +25,7 @@
     &.appear {
 
         .UsersAndMakers__title  {
+            transition-timing-function: ease-out;
             transition-duration: 1s;
             transition-delay: 0.4s;
             opacity: 1;

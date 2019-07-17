@@ -3,7 +3,7 @@
     &__title {
         opacity: 0;
         transition-duration: 0.5s;
-        transition-timing-function: ease-out;
+        transition-timing-function: ease-in-out;
         transform: translate(-50%, -50%);
         margin-top: 40px;
 
@@ -51,6 +51,7 @@
 
         .Intro__title {
             transition-duration: 1s;
+            transition-timing-function: ease-out;
             opacity: 1;
             margin-top: 0;
         }
