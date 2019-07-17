@@ -23,6 +23,7 @@
     "react-syntax-highlighter": "^11.0.2",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
+    "theatre": "^0.2.0-dev.3",
     "three": "^0.106.2",
     "typescript": "3.5.2"
   },

@@ -32,6 +32,21 @@
             transform: translate(-50%, -47%);
             width: 35vw;
             height: 60vh;
+
+            .cursor {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 18px;
+            }
+
+            .selection {
+                top: 50%;
+                left: 50%;
+                position: absolute;
+                background: rgba(64, 116, 194, 0.459);
+                border: 2px solid rgba(93, 158, 255, 0.808);
+            }
         }
     }
 }

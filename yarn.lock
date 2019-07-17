@@ -10199,6 +10199,11 @@ text-table@0.2.0, text-table@^0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
 
+theatre@^0.2.0-dev.3:
+  version "0.2.0-dev.3"
+  resolved "https://registry.yarnpkg.com/theatre/-/theatre-0.2.0-dev.3.tgz#96bbcf71920e199723a610e9c3d3a4520bb7cb04"
+  integrity sha512-DqlNNgfa1bvXCO2vAb0l5ZwMFqUld3XxEoR7BBKRTneSXgzn83N7nQ8rFSR9sLHH8veWKuyVRS6e9W7sbgJm9g==
+
 three@^0.106.2:
   version "0.106.2"
   resolved "https://registry.yarnpkg.com/three/-/three-0.106.2.tgz#6752d304c470e4df230944ecd45325e7bf79e1f8"

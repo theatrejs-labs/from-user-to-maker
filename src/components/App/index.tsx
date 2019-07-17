@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 
 import './style.scss'
 import Presentation from '../../shared/Presentation';
@@ -11,11 +11,25 @@ import HereBeDragons from '../../slides/HereBeDragons';
 import TheDynamicDesignTool from '../../slides/TheDynamicDesignTool';
 
 export default class extends React.Component {
+
+    presentation: RefObject<Presentation> = React.createRef();
+
+    // componentDidMount () {
+    //     const presentation = this.presentation.current
+    //     if (presentation) {
+    //         presentation.next()
+    //         presentation.next()
+    //         presentation.next()
+    //         presentation.next()
+    //         presentation.next()
+    //     }
+    // }
+
     render () {
         return (
-            <Presentation background={background}>
-                <Inklings />
+            <Presentation ref={this.presentation} background={background}>
                 <Intro />
+                <Inklings />
                 <UsersAndMakers />
                 <HereBeDragons />
                 <TheDynamicDesignTool />

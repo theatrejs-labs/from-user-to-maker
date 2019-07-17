@@ -40,6 +40,7 @@ void main(void)
 
 class PhotoshopScene {
 
+    state = {}
     camera: THREE.PerspectiveCamera;
     scene: THREE.Scene;
     renderer: THREE.WebGLRenderer;
@@ -56,6 +57,14 @@ class PhotoshopScene {
             value: new THREE.Vector2()
         }
     };
+
+    setState (values: any) {
+        this.state = {
+            ...this.state,
+            values
+        }
+        this.animate()
+    }
 
     get width () {
         if (this.container) return this.container.clientWidth
@@ -116,9 +125,11 @@ class PhotoshopScene {
     }
 
     animate () {
-        if (this.shouldRender) requestAnimationFrame(this.animate.bind(this))
-        const delta = clock.getDelta();
-        this.uniforms.time.value += delta * 5;
+        if (this.shouldRender) {
+            requestAnimationFrame(this.animate.bind(this))
+            const delta = clock.getDelta();
+            this.uniforms.time.value += delta * 5;
+        }
         this.renderer.render(this.scene, this.camera)
     }
     
