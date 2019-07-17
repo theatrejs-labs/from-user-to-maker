@@ -1,6 +1,10 @@
 {
   "name": "from-user-to-maker",
   "version": "0.1.0",
+  "engines": {
+    "node": ">= 6.9.4",
+    "npm": ">= 4.4.0"
+  },
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.15",
