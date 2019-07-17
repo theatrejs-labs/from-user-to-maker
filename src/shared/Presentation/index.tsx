@@ -2,7 +2,7 @@ import React from 'react'
 import socket from '../socket'
 
 import './style.scss'
-import { every } from '../utils/timeout';
+import background from './assets/background.svg'
 
 interface IProps {}
 interface IState {
@@ -64,9 +64,11 @@ class Presentation extends React.PureComponent<IProps, IState> {
     }
 
     render () {
-        console.log(this.state)
         return (
-            <div className="presentation">{ this.slides }</div>
+            <div className="presentation">
+                {this.slides}
+                {background && <img className="presentation__background" src={background} />}
+            </div>
         )
     }
 
