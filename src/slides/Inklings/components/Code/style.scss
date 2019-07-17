@@ -1,0 +1,9 @@
+.code-box {
+    &__prism {
+        width: calc(100% - 6vw);
+        position: absolute;
+        bottom: 2vw;
+        left: 2vw;
+        height: 300px;
+    }
+}
