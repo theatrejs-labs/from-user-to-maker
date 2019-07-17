@@ -4,6 +4,7 @@ import './style.scss'
 
 interface IProps {
     selected?: boolean
+    changeBackgroundStyle?: (object: any) => void
 }
 interface IState {}
 

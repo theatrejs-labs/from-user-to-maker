@@ -7,6 +7,7 @@ interface IProps {
     background: string
 }
 interface IState {
+    backgroundStyle: any,
     connectedToRemote: boolean
     currentSlide: number
 }
@@ -19,6 +20,7 @@ interface IRemoteSignal {
 class Presentation extends React.PureComponent<IProps, IState> {
 
     state = {
+        backgroundStyle: {},
         connectedToRemote: false,
         currentSlide: 0
     }
@@ -58,9 +60,14 @@ class Presentation extends React.PureComponent<IProps, IState> {
             this.slidesRefs[index] = React.createRef()
             if (slide) return React.cloneElement(slide as any, {
                 ref: this.slidesRefs[index],
-                selected: index === currentSlide
+                selected: index === currentSlide,
+                changeBackgroundStyle: this.changeBackgroundStyle.bind(this)
             })
         })
+    }
+
+    public changeBackgroundStyle (style: any) {
+        this.setState({ backgroundStyle: style })
     }
 
     public next () {
@@ -104,10 +111,11 @@ class Presentation extends React.PureComponent<IProps, IState> {
 
     render () {
         const { background } = this.props
+        const { backgroundStyle } = this.state
         return (
             <div className="presentation">
                 {this.slides}
-                {background && <img className="presentation__background" src={background} alt="Background" />}
+                {background && <img className="presentation__background" style={backgroundStyle} src={background} alt="Background" />}
             </div>
         )
     }

@@ -16,6 +16,21 @@
         }
     }
 
+    &__table {
+        transform: translate(-50%, -50%);
+        width: 790px;
+
+        & > img {
+            margin-top: 41px;
+            opacity: 1;
+            transition-duration: 0.5s;
+
+            &.hide {
+                opacity: 0;
+            }
+        }
+    }
+
     .line {
         width: 0px;
         transform: none;
@@ -53,12 +68,24 @@
         transition-duration: 2s;
     }
 
+    & > .point:nth-child(2) {
+        transform: translate(0, 1000px) scale(1.8);
+        opacity: 0;
+        filter: blur(5px);
+    }
+
     &.showTable {
 
-        & > .point {
-            transform: translate(0, -300px) scale(0.9);
+        & > .point:nth-child(1) {
+            transform: translate(0, -400px) scale(0.85);
             filter: blur(5px);
             opacity: 0.2;
+        }
+
+        & > .point:nth-child(2) {
+            transform: none;
+            opacity: 1;
+            filter: none;
         }
 
     }
