@@ -40,17 +40,19 @@ const reset = () => {
 
 const action = (command) => {
     window.navigator.vibrate(200);
-    console.log(command)
+    socket.emit('controller', { type: 'command', command })
 }
 
 next.onmousedown = next.ontouchstart = () => {
     reset()
+    window.navigator.vibrate(20);
     next.classList.add('hover')
     timeout = setTimeout(() => { action('next') }, 1000)
 }
 
 prev.onmousedown = prev.ontouchstart = () => {
     reset()
+    window.navigator.vibrate([20, 50, 20]);
     prev.classList.add('hover')
     timeout = setTimeout(() => { action('prev') }, 1000)
 }

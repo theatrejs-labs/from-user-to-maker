@@ -8,7 +8,7 @@ app.set('view engine', 'pug')
 app.set('views', path.resolve(__dirname, './views'))
 app.use(express.static(path.resolve(__dirname, './public')))
 
-server.listen(80)
+server.listen(process.env.PORT || 3001)
 
 app.get('/remote', function(req, res){
    res.render("control");
@@ -21,8 +21,8 @@ io.on('connection', function (socket) {
             allowedToSendCommands = data.code === '123456';
         }
         else if (allowedToSendCommands) {
-            if (data.type === 'controller-ready') {
-                io.emit('remote-control', { type: 'controller-ready' })
+            if (data.type === 'controller-ready' || data.type === 'command') {
+                io.emit('remote-control', data)
             }
         }
     })

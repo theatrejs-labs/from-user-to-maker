@@ -7,6 +7,12 @@ body {
     background: #324148;
 }
 
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
 .next, .prev {
     position: absolute;
     transform: translate(-50%, -50%);

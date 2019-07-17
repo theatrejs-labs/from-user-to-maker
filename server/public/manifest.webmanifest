@@ -1,0 +1,13 @@
+{
+    "name": "Presentation Remote Control",
+    "short_name": "Remote",
+    "start_url": "/remote",
+    "display": "standalone",
+    "background_color": "#fff",
+    "description": "Remote control for TheatreJS presentation",
+    "icons": [{
+      "src": "/icons/remote.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }]
+  }
