@@ -6,7 +6,9 @@ import top from './assets/top.png'
 import './style.scss'
 import PhotoshopScene from './PhotoshopScene';
 
-interface IProps {}
+interface IProps {
+    appear: boolean
+}
 interface IState {}
 
 
@@ -25,7 +27,8 @@ export default class Photoshop extends React.Component<IProps, IState> {
     }
 
     render () {
-        return (<div className="Comparison__panel photoshop">
+        const { appear } = this.props
+        return (<div className={"Comparison__panel photoshop" + (appear ? ' appear' : '')}>
             <h1>Photoshop</h1>
             <div className="photoshop__app">
                 <img className="sidebar" src={sidebar} alt="Photoshop Sidebar"/>

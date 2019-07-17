@@ -12,7 +12,8 @@ export default class extends Slide {
 
     state = {
         appear: true,
-        comparisonMode: true
+        comparisonMode: false,
+        comparisonState: 0
     }
 
     steps = [
@@ -25,7 +26,9 @@ export default class extends Slide {
             const { changeBackgroundStyle } = this.props
             if (changeBackgroundStyle) changeBackgroundStyle({ filter: `blur(45px)`, transform: `translate(-55%, -70%)` })
             this.setState({ comparisonMode: true })            
-        }
+        },
+        () => this.setState({ comparisonState: 1 }),
+        () => this.setState({ comparisonState: 2 }),
     ]
     backwardSteps = [
         () => {
@@ -38,10 +41,12 @@ export default class extends Slide {
             if (changeBackgroundStyle) changeBackgroundStyle({})
             this.setState({ comparisonMode: false })
         },
+        () => this.setState({ comparisonState: 0 }),
+        () => this.setState({ comparisonState: 1 }),
     ]
 
     get content () {
-        const { appear, comparisonMode } = this.state
+        const { appear, comparisonMode, comparisonState } = this.state
         return (
             <div className={'Inklings' + (appear ? ' appear' : '') + (comparisonMode ? ' comparison-mode' : '')}>
                 <div className="point">
@@ -49,7 +54,7 @@ export default class extends Slide {
                     <img className="chapter" src={one} alt="Chapter One" />
                     <img className="Inklings__title" src={title} alt="Inklings" />
                 </div>
-                <Comparison appear={comparisonMode} state={0} />
+                <Comparison appear={comparisonMode} state={comparisonState} />
             </div>
         )
     }

@@ -25,6 +25,14 @@
         width: 50vw;
         left: 0;
         font-family: Roboto, serif;
+        opacity: 0;
+        transition-duration: 0.3s;
+        pointer-events: none;
+
+        &.appear {
+            transition-duration: 0.5s;
+            opacity: 1;
+        }
     
         h1 {
             color: white;
