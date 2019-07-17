@@ -21,7 +21,6 @@ export default class Photoshop extends React.Component<IProps, IState> {
     }
 
     componentDidMount () {
-        console.log(this.playground.current)
         if (this.playground.current) this.photoshop.init(this.playground.current);
     }
 
