@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import socket from '../socket'
 
 import './style.scss'
@@ -23,6 +23,8 @@ class Presentation extends React.PureComponent<IProps, IState> {
         currentSlide: 0
     }
 
+    slidesRefs: RefObject<any>[] = []
+
     constructor (props: IProps) {
         super(props)
         let connectionTimeout: any = null
@@ -35,6 +37,7 @@ class Presentation extends React.PureComponent<IProps, IState> {
                 connectionTimeout = setTimeout(() => { this.setState({ connectedToRemote: false }) }, 4000)
             }
         });
+        setTimeout(() => this.next(), 1000);
     }
 
     onControlCommand (command: string) {
@@ -46,13 +49,16 @@ class Presentation extends React.PureComponent<IProps, IState> {
         const { children } = this.props
         const { currentSlide } = this.state
         return React.Children.map(children, (slide, index) => {
+            this.slidesRefs[index] = React.createRef()
             if (slide) return React.cloneElement(slide as any, {
+                ref: this.slidesRefs[index],
                 selected: index === currentSlide
             })
         })
     }
 
     public next () {
+        console.log(this.slidesRefs[0].current)
         this.setState({ currentSlide: this.state.currentSlide + 1 })
     }
 
@@ -69,7 +75,7 @@ class Presentation extends React.PureComponent<IProps, IState> {
         return (
             <div className="presentation">
                 {this.slides}
-                {background && <img className="presentation__background" src={background} />}
+                {background && <img className="presentation__background" src={background} alt="Background" />}
             </div>
         )
     }
