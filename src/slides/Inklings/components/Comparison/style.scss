@@ -1,17 +1,37 @@
-.screen-splitter {
-    background: #345B6B;
-    position: absolute;
-    bottom: -50vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 0vh;
-    transition-duration: 0.5s;
-    opacity: 0.8;
-    
-    &.appear {
-        transition-delay: 0.4s;
-        transition-duration: 1.5s;
-        height: 100vh;
+.Comparison {
+
+    .screen-splitter {
+        background: #345B6B;
+        position: absolute;
+        bottom: -50vh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 0vh;
+        transition-duration: 0.5s;
+        opacity: 0.8;
+        
+        &.appear {
+            transition-delay: 0.4s;
+            transition-duration: 1.5s;
+            height: 100vh;
+        }
     }
+
+    &__panel {
+        position: absolute;
+        top: -50vh;
+        height: 100vh;
+        width: 50vw;
+        left: 0;
+        font-family: Roboto, serif;
+    
+        h1 {
+            color: white;
+            text-align: center;
+            font-weight: 300;
+            margin-top: 10vh;
+        }
+    }
+
 }

@@ -11,8 +11,8 @@ import Comparison from './components/Comparison';
 export default class extends Slide {
 
     state = {
-        appear: false,
-        comparisonMode: false
+        appear: true,
+        comparisonMode: true
     }
 
     steps = [
