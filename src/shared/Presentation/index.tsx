@@ -12,7 +12,7 @@ interface IState {
 
 interface IRemoteSignal {
     type: 'command' | 'controller-ready',
-    message: string | any
+    command: string | any
 }
 
 class Presentation extends React.PureComponent<IProps, IState> {
@@ -26,7 +26,7 @@ class Presentation extends React.PureComponent<IProps, IState> {
         super(props)
         let connectionTimeout: any = null
         socket.on('remote-control', (data: IRemoteSignal) => {
-            if (data.type === 'command') this.onControlCommand(data.message)
+            if (data.type === 'command') this.onControlCommand(data.command)
             if (data.type === 'controller-ready') {
                 if (connectionTimeout) clearTimeout(connectionTimeout)
                 socket.emit('remote-control', { type: 'presentation-ready' })
