@@ -1,14 +1,15 @@
 .place-holder {
-    opacity: 0;
     pointer-events: none;
 
     img, &.progress img {
+        transition-duration: 0.5s;
         transform: translate(-30%, -30%) scale(1.3);
         filter: blur(10px);
         opacity: 0;
     }
 
     &.current img {
+        transition-delay: 1s;
         opacity: 1;
         filter: blur(0);
         transform: translate(-50%, -50%);

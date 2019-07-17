@@ -2,8 +2,10 @@ import React from 'react'
 
 import './style.scss'
 
+export type status = 'progress' | 'current' | 'passed'
+
 interface IProps {
-    status: 'progress' | 'current' | 'passed'
+    status: status
     src: string
     alt?: string
 }
