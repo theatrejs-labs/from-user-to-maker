@@ -21,8 +21,8 @@ io.on('connection', function (socket) {
             allowedToSendCommands = data.code === '123456';
         }
         else if (allowedToSendCommands) {
-            if (data.type === 'controller-ready') {
-                io.emit('remote-control', { type: 'controller-ready' })
+            if (data.type === 'controller-ready' || data.type === 'command') {
+                io.emit('remote-control', data)
             }
         }
     })
