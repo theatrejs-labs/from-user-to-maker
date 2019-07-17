@@ -1,10 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
 
+html, body {
+    overflow: hidden;
+}
 body {
+    position: relative;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background: #324148;
+}
+
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
 }
 
 .next, .prev {
