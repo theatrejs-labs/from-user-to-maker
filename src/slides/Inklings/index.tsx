@@ -6,7 +6,7 @@ import Slide from '../../shared/Slide'
 
 import one from './assets/one.svg'
 import title from './assets/inklings.svg'
-import Comparison from './components/Photoshop';
+import Comparison from './components/Comparison';
 
 export default class extends Slide {
 
@@ -49,7 +49,7 @@ export default class extends Slide {
                     <img className="chapter" src={one} alt="Chapter One" />
                     <img className="Inklings__title" src={title} alt="Inklings" />
                 </div>
-                <Comparison />
+                <Comparison appear={comparisonMode} state={0} />
             </div>
         )
     }

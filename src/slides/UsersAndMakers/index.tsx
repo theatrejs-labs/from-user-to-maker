@@ -5,7 +5,7 @@ import './style.scss'
 import Slide from '../../shared/Slide'
 
 import two from './assets/two.svg'
-import title from './assets/UsersandMakers.svg'
+import title from './assets/UsersAndMakers.svg'
 
 export default class extends Slide {
 

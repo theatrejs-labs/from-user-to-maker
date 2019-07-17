@@ -2,7 +2,10 @@ import React from 'react'
 
 import './style.scss'
 
-export default class Comparison extends React.Component {
+interface IProps {}
+interface IState {}
+
+export default class Code extends React.Component<IProps, IState> {
 
     render () {
         return (<div />)
