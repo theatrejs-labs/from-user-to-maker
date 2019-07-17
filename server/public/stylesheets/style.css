@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
 
-html, body {
-    overflow: hidden;
-}
 body {
-    position: relative;
     margin: 0;
     padding: 0;
     overflow: hidden;
