@@ -2,7 +2,7 @@
     
     &__title {
         opacity: 0;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
         transition-timing-function: ease-out;
         transform: translate(-50%, -50%);
         margin-top: 40px;
@@ -50,6 +50,7 @@
     &.appear {
 
         .Intro__title {
+            transition-duration: 1s;
             opacity: 1;
             margin-top: 0;
         }
