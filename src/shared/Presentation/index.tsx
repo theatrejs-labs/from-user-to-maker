@@ -58,8 +58,17 @@ class Presentation extends React.PureComponent<IProps, IState> {
     }
 
     public next () {
-        console.log(this.slidesRefs[0].current)
-        this.setState({ currentSlide: this.state.currentSlide + 1 })
+        const { currentSlide } = this.state
+        const slide = this.slidesRefs[currentSlide].current
+        if (slide) {
+            if (slide.steps.length > slide.currentStep) {
+                const step = slide.steps[slide.currentSlide]
+                if (typeof step === 'function') step()
+                slide.currentStep++
+            } else {
+                this.setState({ currentSlide: currentSlide + 1 })
+            }
+        }
     }
 
     public prev () {

@@ -5,16 +5,11 @@ import './style.scss'
 interface IProps {
     selected?: boolean
 }
-interface IState {
-    currentStep: number
-}
+interface IState {}
 
 class Slide extends React.Component<IProps, IState> {
 
-    state = {
-        currentStep: 0
-    }
-
+    currentStep: number = 0
     steps = []
 
     get content () {
