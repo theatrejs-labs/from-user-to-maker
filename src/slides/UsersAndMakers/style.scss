@@ -41,4 +41,14 @@
             transform: translate(-50%, -65%);            
         }
     }
+
+    &.no-chapter {
+
+        & > .point:nth-child(1) {
+            transition-timing-function: ease-in;
+            transform: translate(0, -400px);
+            opacity: 0;
+        }
+
+    }
 }
