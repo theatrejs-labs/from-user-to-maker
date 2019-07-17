@@ -18,6 +18,10 @@
         transition-duration: 0.5s;
     }
 
+    & > .point {
+        transition-duration: 1s;
+    }
+
     &.appear {
 
         .Inklings__title  {
@@ -32,5 +36,15 @@
             transition-delay: 0.8s;
             width: 110px;
         }
+    }
+
+    &.comparison-mode {
+
+        & > .point:nth-child(1) {
+            transition-timing-function: ease-in;
+            transform: translate(0, -400px);
+            opacity: 0;
+        }
+
     }
 }

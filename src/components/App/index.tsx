@@ -14,8 +14,8 @@ export default class extends React.Component {
     render () {
         return (
             <Presentation background={background}>
-                <Intro />
                 <Inklings />
+                <Intro />
                 <UsersAndMakers />
                 <HereBeDragons />
                 <TheDynamicDesignTool />
