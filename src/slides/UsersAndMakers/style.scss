@@ -1,4 +1,4 @@
-.Inklings {
+.UsersAndMakers {
     
     &__title {
         position: absolute;
@@ -6,21 +6,25 @@
         top: 50px;
         left: 0;
         transition-duration: 0.5s;
+        transition-delay: 0.3s;
         transition-timing-function: ease-out;
         transform: translate(-50%, -50%);
         margin-top: 0px;
     }
 
     .line {
-        left: -310px;
+        left: -174px;
         width: 0;
-        transform: none;
         transition-duration: 0.5s;
+
+        &.right {
+            left: 174px;
+        }
     }
 
     &.appear {
 
-        .Inklings__title  {
+        .UsersAndMakers__title  {
             transition-duration: 1s;
             transition-delay: 0.4s;
             opacity: 1;
@@ -29,7 +33,11 @@
 
         .line {
             transition-delay: 0.8s;
-            width: 110px;
+            width: 225px;
+        }
+
+        .chapter {
+            transform: translate(-50%, -65%);            
         }
     }
 }

@@ -10,7 +10,6 @@ import title2 from './assets/Title-Part2.svg'
 import row1 from './assets/row1.svg'
 import row2 from './assets/row2.svg'
 import row3 from './assets/row3.svg'
-import noop from '../../shared/noop';
 
 export default class extends Slide {
 
