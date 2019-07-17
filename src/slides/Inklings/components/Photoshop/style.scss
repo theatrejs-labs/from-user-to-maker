@@ -5,4 +5,33 @@
     width: 50vw;
     left: -50vw;
     font-family: Roboto, serif;
+
+    &__app {
+        background: #282828;
+        width: calc(100% - 7vw);
+        position: absolute;
+        bottom: 2vw;
+        left: 5vw;
+        height: 75vh;
+
+        .sidebar {
+            height: 100%;
+            transform: translateX(-100%);
+        }
+
+        .topbar {
+            position: absolute;
+            width: 100%;
+            left: 0;
+        }
+
+        .playground {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 35vw;
+            height: 55vh;
+        }
+    }
 }
