@@ -15,3 +15,9 @@
     width: 0;
     height: 0;
 }
+
+.chapter {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+    transition-duration: 1s;
+}
