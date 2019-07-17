@@ -37,7 +37,13 @@ class Presentation extends React.PureComponent<IProps, IState> {
                 connectionTimeout = setTimeout(() => { this.setState({ connectedToRemote: false }) }, 4000)
             }
         });
-        setTimeout(() => this.next(), 1000);
+    }
+
+    componentDidMount () {
+        window.addEventListener('keyup', (e) => {
+            if (e.key === ' ' || e.key === 'ArrowRight') this.next()
+            else if (e.key === 'ArrowLeft') this.prev()
+        })
     }
 
     onControlCommand (command: string) {
@@ -59,20 +65,37 @@ class Presentation extends React.PureComponent<IProps, IState> {
 
     public next () {
         const { currentSlide } = this.state
+        const slidesCount: number = this.slidesRefs.length
         const slide = this.slidesRefs[currentSlide].current
         if (slide) {
             if (slide.steps.length > slide.currentStep) {
-                const step = slide.steps[slide.currentSlide]
-                if (typeof step === 'function') step()
                 slide.currentStep++
+                const step = slide.steps[slide.currentStep - 1]
+                if (typeof step === 'function') step()
             } else {
-                this.setState({ currentSlide: currentSlide + 1 })
+                if (slidesCount > currentSlide + 1) {
+                    this.setState({ currentSlide: currentSlide + 1 })
+                }
             }
         }
     }
 
     public prev () {
-        this.setState({ currentSlide: this.state.currentSlide - 1 })        
+        const { currentSlide } = this.state
+        const slide = this.slidesRefs[currentSlide].current
+        if (slide) {
+            if (0 < slide.currentStep) {
+                slide.currentStep--
+                const backwardStep = slide.backwardSteps[slide.currentStep]
+                const step = slide.steps[slide.currentStep - 1]
+                if (typeof backwardStep === 'function') backwardStep()
+                else if (typeof step === 'function') step()
+            } else {
+                if (0 < currentSlide) {
+                    this.setState({ currentSlide: currentSlide - 1 })
+                }
+            }
+        }    
     }
 
     public goto (i: number) {

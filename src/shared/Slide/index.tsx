@@ -10,7 +10,8 @@ interface IState {}
 class Slide extends React.Component<IProps, IState> {
 
     currentStep: number = 0
-    steps = []
+    steps: (() => void)[] = []
+    backwardSteps: (() => void)[] = []
 
     get content () {
         return (<></>)
