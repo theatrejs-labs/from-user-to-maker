@@ -40,7 +40,7 @@ void main(void)
 
 class PhotoshopScene {
 
-    state = {}
+    state: any = {}
     camera: THREE.PerspectiveCamera;
     scene: THREE.Scene;
     renderer: THREE.WebGLRenderer;
@@ -57,11 +57,18 @@ class PhotoshopScene {
             value: new THREE.Vector2()
         }
     };
+    mainSphere: THREE.Mesh
+    basicMaterial: THREE.Material = new THREE.MeshBasicMaterial({ color: 0xe157be })
+    shaderMaterial: THREE.Material = new THREE.ShaderMaterial({
+        uniforms: this.uniforms,
+        vertexShader,
+        fragmentShader
+    });
 
     setState (values: any) {
         this.state = {
             ...this.state,
-            values
+            ...values
         }
         this.animate()
     }
@@ -82,11 +89,7 @@ class PhotoshopScene {
 
     addSphere () {
         const geometry = new THREE.SphereGeometry(0.5, 32, 32);
-        const material = new THREE.ShaderMaterial({
-            uniforms: this.uniforms,
-            vertexShader,
-            fragmentShader
-        });
+        const material = this.basicMaterial
         const mesh = new THREE.Mesh( geometry, material );
         this.scene.add(mesh);
         return mesh;
@@ -97,7 +100,7 @@ class PhotoshopScene {
         this.camera.position.z = 3;
         this.scene = new THREE.Scene();
         this.scene.background = new THREE.Color(0x111111)
-        this.addSphere()
+        this.mainSphere = this.addSphere()
 
         this.light = new THREE.PointLight(0xff0000, 10, 20)
         this.light.position.set(10, 10, 12)
@@ -130,6 +133,8 @@ class PhotoshopScene {
             const delta = clock.getDelta();
             this.uniforms.time.value += delta * 5;
         }
+        this.mainSphere.visible = Boolean(this.state.draw)
+        this.mainSphere.material = Boolean(this.state.shader) ? this.shaderMaterial : this.basicMaterial
         this.renderer.render(this.scene, this.camera)
     }
     

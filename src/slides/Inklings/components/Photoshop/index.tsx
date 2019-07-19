@@ -74,6 +74,7 @@ export default class Photoshop extends React.Component<IProps, IState> {
         const canvas = this.timeline.getObject('Photoshop Canvas', {}, {
             props: {
                 draw: { type: 'number' },
+                shader: { type: 'number' },
             }
         })
         cursor.onValuesChange((values) => {
@@ -86,14 +87,13 @@ export default class Photoshop extends React.Component<IProps, IState> {
             this.photoshop.setState(values)
         })
         project.ready.then(() => {
-            this.timeline.play()
+            this.timeline.play({ iterationCount: Infinity })
         })
     }
 
     componentDidMount () {
         if (this.playground.current) {
             this.photoshop.init(this.playground.current);
-            // this.photoshop.play()
         }
     }
 
