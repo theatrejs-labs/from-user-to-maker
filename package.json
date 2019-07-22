@@ -5,6 +5,7 @@
     "node": ">= 10.15.1",
     "npm": ">= 6.4.1"
   },
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.15",
