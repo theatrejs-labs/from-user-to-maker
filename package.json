@@ -5,7 +5,7 @@
     "node": ">= 10.15.1",
     "npm": ">= 6.4.1"
   },
-  "homepage": ".",
+  "homepage": "https://theatrejs-labs.github.io/from-user-to-maker/",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.15",
