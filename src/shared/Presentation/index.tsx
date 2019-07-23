@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react'
+import React, { RefObject, Suspense } from 'react'
 import socket from '../socket'
 
 import './style.scss'
@@ -114,7 +114,9 @@ class Presentation extends React.PureComponent<IProps, IState> {
         const { backgroundStyle } = this.state
         return (
             <div className="presentation">
-                {this.slides}
+                <Suspense fallback={() => <div />}>
+                    {this.slides}
+                </Suspense>
                 {background && <img className="presentation__background" style={backgroundStyle} src={background} alt="Background" />}
             </div>
         )

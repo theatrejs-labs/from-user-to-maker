@@ -1,14 +1,15 @@
-import React, { RefObject } from 'react'
+import React, { RefObject, lazy } from 'react'
 
 import './style.scss'
 import Presentation from '../../shared/Presentation';
 
 import background from './assets/background.svg'
 import Intro from '../../slides/Intro';
-import Inklings from '../../slides/Inklings';
-import UsersAndMakers from '../../slides/UsersAndMakers';
-import HereBeDragons from '../../slides/HereBeDragons';
-import TheDynamicDesignTool from '../../slides/TheDynamicDesignTool';
+
+const Inklings = lazy(() => import('../../slides/Inklings'))
+const UsersAndMakers = lazy(() => import('../../slides/UsersAndMakers'))
+const HereBeDragons = lazy(() => import('../../slides/HereBeDragons'))
+const TheDynamicDesignTool = lazy(() => import('../../slides/TheDynamicDesignTool'))
 
 export default class extends React.Component {
 
