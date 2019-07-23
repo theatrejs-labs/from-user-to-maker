@@ -29,11 +29,11 @@ export default class extends React.Component {
     render () {
         return (
             <Presentation ref={this.presentation} background={background}>
-                <Intro />
+                <TheDynamicDesignTool />
+                {/* <Intro />
                 <Inklings />
                 <UsersAndMakers />
-                <HereBeDragons />
-                <TheDynamicDesignTool />
+                <HereBeDragons /> */}
             </Presentation>
         )
     }
