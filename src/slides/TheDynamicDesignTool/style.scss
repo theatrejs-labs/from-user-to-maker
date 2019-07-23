@@ -35,6 +35,24 @@
             opacity: 0;
             transition-duration: 1s;
             transform: translate(-50%, -50%) scale(0.8);
+
+            &.aside {
+                transition-delay: 0s !important;
+                transition-duration: 0.5s !important;
+                opacity: 0 !important;
+                transform: translate(-50%, -50%) scale(0.8) !important;
+            }
+        }
+
+        & > img.polygon {
+            transition-duration: 1s;
+
+            &.aside {
+                transition-delay: 0.2s;
+                transform: translate(-50%, -50%) scale(1.6) rotate(72deg);
+                top: 16vh;
+                left: -43vw;
+            }
         }
 
     }

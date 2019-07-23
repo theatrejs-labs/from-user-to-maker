@@ -15,9 +15,11 @@ export default class extends Slide {
     state: {
         appear: boolean
         noChapter: boolean
+        polygonAside: boolean
     } = {
         noChapter: false,
         appear: false,
+        polygonAside: false
     }
 
     steps = [
@@ -26,7 +28,8 @@ export default class extends Slide {
             if (changeBackgroundStyle) changeBackgroundStyle({})
             this.setState({ appear: true })
         },
-        () => this.setState({ noChapter: true })
+        () => this.setState({ noChapter: true }),
+        () => this.setState({ polygonAside: true }),
     ]
     backwardSteps = [
         () => {
@@ -34,11 +37,12 @@ export default class extends Slide {
             if (changeBackgroundStyle) changeBackgroundStyle({ filter: `blur(35px)`, transform: `translate(-50%, -70%)` })
             this.setState({ appear: false })
         },
-        () => this.setState({ noChapter: false })
+        () => this.setState({ noChapter: false }),
+        () => this.setState({ polygonAside: false }),
     ]
 
     get content () {
-        const { appear, noChapter } = this.state
+        const { appear, noChapter, polygonAside } = this.state
         return (
             <div className={'TheDynamicDesignTool' + (appear ? ' appear' : '') + (noChapter ? ' no-chapter' : '')}>
                 <div className="point">
@@ -46,8 +50,8 @@ export default class extends Slide {
                     <img className="TheDynamicDesignTool__title" src={title} alt="The Dynamic Design Tool" />
                 </div>
                 <div className="point">
-                    <img className="polygon" src={polygon} alt="Polygon" />
-                    <img className="text" src={text} alt="Text" />
+                    <img className={"polygon" + (polygonAside ? ' aside' : '')} src={polygon} alt="Polygon" />
+                    <img className={"text" + (polygonAside ? ' aside' : '')} src={text} alt="Text" />
                 </div>
             </div>
         )
