@@ -15,25 +15,14 @@ export default class extends React.Component {
 
     presentation: RefObject<Presentation> = React.createRef();
 
-    // componentDidMount () {
-    //     const presentation = this.presentation.current
-    //     if (presentation) {
-    //         presentation.next()
-    //         presentation.next()
-    //         presentation.next()
-    //         presentation.next()
-    //         presentation.next()
-    //     }
-    // }
-
     render () {
         return (
             <Presentation ref={this.presentation} background={background}>
-                <TheDynamicDesignTool />
-                {/* <Intro />
+                <Intro />
                 <Inklings />
                 <UsersAndMakers />
-                <HereBeDragons /> */}
+                <HereBeDragons />
+                <TheDynamicDesignTool />
             </Presentation>
         )
     }

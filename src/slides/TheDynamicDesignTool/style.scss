@@ -51,10 +51,39 @@
                 transition-delay: 0.2s;
                 transform: translate(-50%, -50%) scale(1.6) rotate(72deg);
                 top: 16vh;
-                left: -43vw;
+                left: -45vw;
+
+                &.select0 {
+                    transform: translate(-50%, -50%) scale(1.6) rotate(72deg);
+                }
+                &.select1 {
+                    transform: translate(-50%, -50%) scale(1.6) rotate(144deg);
+                }
+                &.select2 {
+                    transform: translate(-50%, -50%) scale(1.6) rotate(216deg);
+                }
+                &.select3 {
+                    transform: translate(-50%, -50%) scale(1.6) rotate(288deg);
+                }
+                &.select4 {
+                    transform: translate(-50%, -50%) scale(1.6) rotate(360deg);
+                }
             }
         }
 
+    }
+
+    .option {
+        position: absolute;
+        transform: translate(-14vw, -50%) translateY(-2vh);
+        transition-duration: 0.5s;
+        opacity: 0;
+
+        &.visible {
+            transition-duration: 0.8s;
+            transition-delay: 0.8s;
+            opacity: 1;
+        }
     }
     
     &.appear {
