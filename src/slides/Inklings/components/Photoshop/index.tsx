@@ -108,7 +108,7 @@ export default class Photoshop extends React.Component<IProps, IState> {
                 <img className="sidebar" src={sidebar} alt="Photoshop Sidebar"/>
                 <img className="topbar" src={top} alt="Photoshop Topbar"/>
                 <div ref={this.playground} className="playground">
-                    <img src={cursorImage} style={{ marginTop: cursor.y, marginLeft: cursor.x }} className="cursor" />
+                    <img src={cursorImage} style={{ marginTop: cursor.y, marginLeft: cursor.x }} className="cursor" alt="Cursor" />
                     <div className="selection" style={{
                         marginTop: selection.top,
                         marginLeft: selection.left,
