@@ -22,7 +22,6 @@ interface IState {
         width: number,
         height: number,
         opacity: number
-        radius: number
     }
 }
 
@@ -45,8 +44,7 @@ export default class Photoshop extends React.Component<IProps, IState> {
                 left: 0,
                 width: 0,
                 height: 0,
-                opacity: 0,
-                radius: 0
+                opacity: 0
             }
         }
         this.photoshop = new PhotoshopScene();
@@ -67,8 +65,7 @@ export default class Photoshop extends React.Component<IProps, IState> {
                 left: { type: 'number' },
                 width: { type: 'number' },
                 height: { type: 'number' },
-                opacity: { type: 'number' },
-                radius: { type: 'number' },
+                opacity: { type: 'number' }
             }
         })
         const canvas = this.timeline.getObject('Photoshop Canvas', {}, {
@@ -86,9 +83,14 @@ export default class Photoshop extends React.Component<IProps, IState> {
         canvas.onValuesChange((values) => {
             this.photoshop.setState(values)
         })
-        project.ready.then(() => {
-            this.timeline.play({ iterationCount: Infinity })
-        })
+    }
+
+    stepOne () {
+        this.timeline.play({ range: { from: 0, to: 2350 } })
+    }
+
+    stepTwo () {
+        this.timeline.play({ range: { from: 2200, to: 4000 } })
     }
 
     componentDidMount () {
@@ -112,7 +114,6 @@ export default class Photoshop extends React.Component<IProps, IState> {
                         marginLeft: selection.left,
                         width: selection.width,
                         height: selection.height,
-                        borderRadius: selection.radius,
                         opacity: selection.opacity
                     }}></div>
                 </div>

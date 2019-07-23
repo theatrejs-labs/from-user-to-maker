@@ -55,6 +55,8 @@ export default class extends Slide {
         },
         () => this.setState({ comparisonState: 1 }),
         () => this.setState({ comparisonState: 2 }),
+        () => this.setState({ comparisonState: 3 }),
+        () => this.setState({ comparisonState: 4 }),
         () => this.setState({ comparisonMode: false, comparisonState: 0, emily1: 'current' }),
         () => this.setState({ emily1: 'passed', emily2: 'current' }),
         () => this.setState({ emily2: 'passed', emily3: 'current' }),
